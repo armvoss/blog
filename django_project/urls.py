@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#Die reihenfolge der einträge ist wichtig da django das top to buttom abarbeitet
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls")),
     path("", include("blog.urls")),
 ]
